@@ -1,0 +1,25 @@
+<div class="row container">
+    <div class="col">
+        <h1>Directiva *ngIf</h1>
+        <hr>
+        <div *ngIf="bandera" class="card text-white bg-success mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h5 class="card-title">Success card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+        <button (click)="bandera = !bandera" type="button" class="btn btn-outline-success">
+          Mostrar/ Ocultar
+        </button>
+    </div>
+    <div class="col">
+        <h1>Directiva *ngFor</h1>
+        <hr>
+        <ul class="list-group">
+            <li *ngFor="let boludo of lista" class="list-group-item">
+                {{boludo}}
+            </li>
+        </ul>
+    </div>
+</div>

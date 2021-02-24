@@ -1,0 +1,136 @@
+<h1>Pipes <small>Angular</small></h1>
+<hr>
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead class="thead-dark">
+                <th>Variable</th>
+                <th>Pipe</th>
+                <th>Retorno</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>UpperCase</td>
+                    <td>{{ nombre | uppercase }}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>UpperCase</td>
+                    <td>{{ nombre | lowercase }}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>Slice:3</td>
+                    <td>{{ nombre | slice:3}}</td>
+                </tr>
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>Slice:2:8</td>
+                    <td>{{ nombre | slice:2:8}}</td>
+                </tr>
+                <tr>
+                    <td>{{arreglo}}</td>
+                    <td>Slice:2:8</td>
+                    <td>{{ arreglo | slice:2:8}}</td>
+                </tr>
+                <tr>
+                    <td>{{PI}}</td>
+                    <td>number:'.2-4'</td>
+                    <td>{{ PI | number:'.2-4'}}</td>
+                </tr>
+                <tr>
+                    <td>{{ porcentaje }}</td>
+                    <td>percent:'.2-2'</td>
+                    <td>{{ porcentaje | percent:'.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>{{ salario }}</td>
+                    <td>currency</td>
+                    <td>{{ salario | currency}}</td>
+                </tr>
+                <tr>
+                    <td>{{ salario }}</td>
+                    <td>currency:'ARS':'symbol-narrow':'.0-0'</td>
+                    <td>{{ salario | currency:'ARS':'symbol-narrow':'.0-0'}}</td>
+                </tr>
+                <tr>
+                    <td>{{ valorPromesa }}</td>
+                    <td>Async</td>
+                    <td>{{ valorPromesa | async }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date</td>
+                    <td>{{ fecha | date }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date:'medium'</td>
+                    <td>{{ fecha | date: 'medium' }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date:'short'</td>
+                    <td>{{ fecha | date: 'short' }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>date:'MMMM-dd'</td>
+                    <td>{{ fecha | date: 'MMMM-dd' }}</td>
+                </tr>
+                <tr>
+                    <td>{{ nombre2 }}</td>
+                    <td>Capitalizado</td>
+                    <td>{{ nombre2 | capitalizado:false }}</td>
+                </tr>
+                <tr>
+                    <td>{{ password }}</td>
+                    <td>Pipe perzonalizado
+                        <br>
+                        <button (click)="estado = !estado" class="btn btn-outline-success">
+                        <small *ngIf="estado">Mostrar</small>
+                        <small *ngIf="!estado">Ocultar</small>
+                      </button>
+                    </td>
+                    <td>{{ password | pass:estado }}</td>
+                </tr>
+                <tr>
+                    <td>{{ fecha }}</td>
+                    <td>fecha | date: 'MMMM-dd':'':{{idioma}}<br>
+                        <button (click)="idioma = 'es'" class="btn btn-outline-success mr-1">Españos</button>
+                        <button (click)="idioma = 'en'" class="btn btn-outline-primary mr-1">Ingles</button>
+                        <button (click)="idioma = 'fr'" class="btn btn-outline-secondary mr-1">Frances</button>
+                    </td>
+                    <td>{{ fecha | date: 'MMMM-dd':'':idioma }}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <h4>Slice</h4>
+        <ul>
+            <li *ngFor="let item of arreglo | slice:5:20"> {{item}} </li>
+        </ul>
+
+        <h3>Pipe Json</h3>
+        <hr>
+        <div class="row mb-5">
+            <div class="col">
+                <pre>
+              {{persona | json}}
+            </pre>
+            </div>
+        </div>
+
+        <h3 class="mt-4">Video de fuente externa</h3>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <iframe width="560" height="315" [src]="url | domseguro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+            </div>
+        </div>
+    </div>
+
+</div>
